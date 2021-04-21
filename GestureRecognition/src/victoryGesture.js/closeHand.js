@@ -6,7 +6,7 @@ import {
 import GestureDescription from "fingerpose/src/GestureDescription";
 
 // describe thumbs up gesture 👍
-const closeHandGesture = new GestureDescription("closeHand");
+const closeHandGesture = new GestureDescription("Asficcia");
 
 // all other fingers:
 // - curled

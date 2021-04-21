@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 
 import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
-import indexUpDescription from "./components/loveGesture";
+
 import Webcam from "react-webcam";
 import "./App.css";
 import { drawHand } from "./utilities";
@@ -11,10 +11,11 @@ import { drawHand } from "./utilities";
 import * as fp from "fingerpose";
 import victory from "./victory.png";
 import thumbs_up from "./thumbs_up.png";
-import closeHandGesture from "./components/closeHand";
-import thumbsDownGesture from "./components/openHandGesture";
-import loveGesture from "./components/loveGesture";
-import openHandGesture from "./components/openHandGesture";
+import closeHandGesture from "./victoryGesture.js/closeHand";
+import openHandGesture from "./victoryGesture.js/openHandGesture";
+import loveGesture from "./victoryGesture.js/loveGesture";
+import VictoryGesture from "./victoryGesture.js/components/victoryGesture";
+import ThumbsUpGesture from "./victoryGesture.js/components/thumbsUpGesture";
 ///////// NEW STUFF IMPORTS
 
 function App() {
@@ -63,11 +64,11 @@ function App() {
 
       if (hand.length > 0) {
         const GE = new fp.GestureEstimator([
-          fp.Gestures.VictoryGesture, // Violencia de genero
-          fp.Gestures.ThumbsUpGesture, //Secuestro
-         closeHandGesture,
-         openHandGesture,
-          loveGesture, //Accidente
+          VictoryGesture, 
+          ThumbsUpGesture, 
+          loveGesture,
+          closeHandGesture,
+          openHandGesture, 
         ]);
         const gesture = await GE.estimate(hand[0].landmarks, 4);
         if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
@@ -150,6 +151,30 @@ function App() {
 
         {/* NEW STUFF */}
       </header>
+      <div
+        style={{
+          position: "absolute",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: "auto",
+          left: 940,
+          top: 700,
+          right: 0,
+          textAlign: "center",
+          height: 100,
+        }}
+      >
+        <button
+          style={{
+            backgroundColor: "Red",
+            color: "wheat",
+            height: 50,
+            marginBottom: 5,
+          }}
+        >
+          Enviar mensaje de auxilio por <strong>{emoji}</strong>{" "}
+        </button>
+      </div>
     </div>
   );
 }

@@ -5,8 +5,8 @@ import {
 } from "fingerpose/src/FingerDescription";
 import GestureDescription from "fingerpose/src/GestureDescription";
 
-// describe thumbs up gesture 👍
-const openHandGesture = new GestureDescription("full open");
+// des+cribe thumbs up gesture 👍
+const openHandGesture = new GestureDescription("Accidente");
 
 // all other fingers:
 // - curled

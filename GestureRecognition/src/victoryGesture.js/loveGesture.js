@@ -6,7 +6,7 @@ import {
 import GestureDescription from "fingerpose/src/GestureDescription";
 
 // describe victory gesture ✌️
-const loveGesture = new GestureDescription('love');
+const loveGesture = new GestureDescription('Violencia de genero');
 
 
 // thumb:
