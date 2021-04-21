@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 
 import * as tf from "@tensorflow/tfjs";
 import * as handpose from "@tensorflow-models/handpose";
-import thumbsDownDescription from "./components/thumbsDown";
+import indexUpDescription from "./components/loveGesture";
 import Webcam from "react-webcam";
 import "./App.css";
 import { drawHand } from "./utilities";
@@ -11,6 +11,10 @@ import { drawHand } from "./utilities";
 import * as fp from "fingerpose";
 import victory from "./victory.png";
 import thumbs_up from "./thumbs_up.png";
+import closeHandGesture from "./components/closeHand";
+import thumbsDownGesture from "./components/openHandGesture";
+import loveGesture from "./components/loveGesture";
+import openHandGesture from "./components/openHandGesture";
 ///////// NEW STUFF IMPORTS
 
 function App() {
@@ -61,9 +65,9 @@ function App() {
         const GE = new fp.GestureEstimator([
           fp.Gestures.VictoryGesture, // Violencia de genero
           fp.Gestures.ThumbsUpGesture, //Secuestro
-          //indexUp
-          //indexHalfCurl
-          thumbsDownDescription,
+         closeHandGesture,
+         openHandGesture,
+          loveGesture, //Accidente
         ]);
         const gesture = await GE.estimate(hand[0].landmarks, 4);
         if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
